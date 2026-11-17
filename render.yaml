@@ -2,15 +2,11 @@ services:
   - type: web
     name: service-snaps-api
     runtime: node
-    plan: 0.5c-512mb
+    plan: free
     rootDir: backend
     buildCommand: npm ci
     startCommand: npm start
     healthCheckPath: /api/health
-    disk:
-      name: service-snaps-uploads
-      mountPath: /var/data/uploads
-      sizeGB: 1
     envVars:
       - key: DATABASE_URL
         sync: false
@@ -18,5 +14,3 @@ services:
         generateValue: true
       - key: CORS_ORIGINS
         sync: false
-      - key: UPLOADS_DIR
-        value: /var/data/uploads
