@@ -56,7 +56,7 @@ The frontend is at `http://localhost:5173` and the API is at `http://localhost:5
 
 ## Deploy to Vercel and Render
 
-The repository includes `vercel.json` and `render.yaml` for the split deployment. Connect this repository to both services. Keep Vercel's Root Directory set to the repository root; its config builds `frontend` and serves the Vite `dist` output. Create the Render service from the Blueprint in `render.yaml`; it sets `backend` as the service root and uses `/api/health` for health checks.
+The repository includes `frontend/vercel.json` and `render.yaml` for the split deployment. Connect this repository to both services. Set Vercel's Root Directory to `frontend`; its config installs from `frontend/package-lock.json`, builds Vite, and serves `dist`. Create the Render service from the Blueprint in `render.yaml`; it sets `backend` as the service root and uses `/api/health` for health checks.
 
 Set these values during setup:
 
